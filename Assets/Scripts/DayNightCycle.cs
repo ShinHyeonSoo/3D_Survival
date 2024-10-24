@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,7 +8,7 @@ public class DayNightCycle : MonoBehaviour
     public float _time;
     public float _fullDayLength;
     public float _startTime = 0.4f;
-    public Vector3 _noon; // Vector 90 0 0 : Á¤¿À
+    public Vector3 _noon; // Vector 90 0 0 : ì •ì˜¤
 
     private float _timeRate;
 

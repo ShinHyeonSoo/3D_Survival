@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1be3eef29c28264787c9aa1d1791a18, type: 3}
+  m_Name: Item_Rock
+  m_EditorClassIdentifier: 
+  _displayName: "\uB3CC"
+  _description: "\uADF8\uB0E5 \uB3CC\uC785\uB2C8\uB2E4."
+  _type: 2
+  _icon: {fileID: 21300000, guid: e61976ceaf6919c47853f5a7ea09288b, type: 3}
+  _dropPrefab: {fileID: 7133400774912814733, guid: 0307f68c23497e44f82f67b3f86f2844, type: 3}
+  _canStack: 1
+  _maxStackAmount: 12
+  _consumables: []

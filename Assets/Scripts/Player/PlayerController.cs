@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -53,10 +53,10 @@ public class PlayerController : MonoBehaviour
 
     private void CameraLook()
     {
-        // _mouseDelta.x ´Â ¸¶¿ì½º ÁÂ¿ì, _mouseDelta.y ´Â ¸¶¿ì½º »óÇÏ
-        // ÇÃ·¹ÀÌ¾î°¡ ÁÂ¿ì¸¦ º¸·Á¸é yÃàÀ» ±âÁØÀ¸·Î È¸ÀüÇÏ±â ¶§¹®¿¡, ¸¶¿ì½º ÁÂ¿ì °ªÀÎ x
-        // ÇÃ·¹ÀÌ¾î°¡ »óÇÏ¸¦ º¸·Á¸é xÃàÀ» ±âÁØÀ¸·Î È¸ÀüÇÏ±â ¶§¹®¿¡, ¸¶¿ì½º »óÇÏ °ªÀÎ y
-        // ¸¶¿ì½º µ¿ÀÛ°ú º¸¿©Áö´Â °ªÀÌ ¹İ´ëÀÌ¹Ç·Î ºÎÈ£¸¦ - °öÇØÁÜ¤¤
+        // _mouseDelta.x ëŠ” ë§ˆìš°ìŠ¤ ì¢Œìš°, _mouseDelta.y ëŠ” ë§ˆìš°ìŠ¤ ìƒí•˜
+        // í”Œë ˆì´ì–´ê°€ ì¢Œìš°ë¥¼ ë³´ë ¤ë©´ yì¶•ì„ ê¸°ì¤€ìœ¼ë¡œ íšŒì „í•˜ê¸° ë•Œë¬¸ì—, ë§ˆìš°ìŠ¤ ì¢Œìš° ê°’ì¸ x
+        // í”Œë ˆì´ì–´ê°€ ìƒí•˜ë¥¼ ë³´ë ¤ë©´ xì¶•ì„ ê¸°ì¤€ìœ¼ë¡œ íšŒì „í•˜ê¸° ë•Œë¬¸ì—, ë§ˆìš°ìŠ¤ ìƒí•˜ ê°’ì¸ y
+        // ë§ˆìš°ìŠ¤ ë™ì‘ê³¼ ë³´ì—¬ì§€ëŠ” ê°’ì´ ë°˜ëŒ€ì´ë¯€ë¡œ ë¶€í˜¸ë¥¼ - ê³±í•´ì¤Œã„´
         _camCurXRot += _mouseDelta.y * _lookSensitivity;
         _camCurXRot = Mathf.Clamp(_camCurXRot, _minXLook, _maxXLook);
         _cameraContainer.localEulerAngles = new Vector3(-_camCurXRot, 0, 0);
