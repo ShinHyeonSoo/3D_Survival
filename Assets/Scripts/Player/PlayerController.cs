@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -18,7 +19,9 @@ public class PlayerController : MonoBehaviour
     public float _lookSensitivity;
     private float _camCurXRot;
     private Vector2 _mouseDelta;
+    public bool _canLook = true;
 
+    public event Action Inventory;
     private Rigidbody _rigidbody;
 
     private void Awake()
@@ -39,7 +42,8 @@ public class PlayerController : MonoBehaviour
 
     private void LateUpdate()
     {
-        CameraLook();
+        if (_canLook)
+            CameraLook();
     }
 
     private void Move()
@@ -89,6 +93,15 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void OnInventory(InputAction.CallbackContext context)
+    {
+        if(context.phase == InputActionPhase.Started)
+        {
+            Inventory?.Invoke();
+            ToggleCursor();
+        }
+    }
+
     bool IsGrounded()
     {
         Ray[] rays = new Ray[4]
@@ -108,5 +121,12 @@ public class PlayerController : MonoBehaviour
         }
 
         return false;
+    }
+
+    void ToggleCursor()
+    {
+        bool toggle = Cursor.lockState == CursorLockMode.Locked;
+        Cursor.lockState = toggle ? CursorLockMode.None : CursorLockMode.Locked;
+        _canLook = !toggle;
     }
 }
