@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
 
 public interface IDamageable
@@ -55,5 +56,16 @@ public class PlayerCondition : MonoBehaviour, IDamageable
     {
         Health.Subtract(damage);
         OnTakeDamage?.Invoke();
+    }
+    
+    public bool UseStamina(float amount)
+    {
+        if(Stamina._curValue - amount < 0f)
+        {
+            return false;
+        }
+
+        Stamina.Subtract(amount);
+        return true;
     }
 }
