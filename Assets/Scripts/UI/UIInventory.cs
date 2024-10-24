@@ -124,7 +124,7 @@ public class UIInventory : MonoBehaviour
     {
         for (int i = 0; i < _slots.Length; ++i)
         {
-            if(_slots[i]._item != null )
+            if(_slots[i]._item != null)
                 _slots[i].Setting();
             else
                 _slots[i].Clear();
@@ -185,5 +185,46 @@ public class UIInventory : MonoBehaviour
         _equipBtn.SetActive(_selectedItem._type == ItemType.Equipable && !_slots[index]._equipped);
         _unEquipBtn.SetActive(_selectedItem._type == ItemType.Equipable && _slots[index]._equipped);
         _dropBtn.SetActive(true);
+    }
+
+    public void OnUseButton()
+    {
+        if(_selectedItem._type == ItemType.Consumable)
+        {
+            for(int i = 0; i < _selectedItem._consumables.Length; ++i)
+            {
+                switch(_selectedItem._consumables[i]._type)
+                {
+                    case ConsumableType.Health:
+                        _condition.Heal(_selectedItem._consumables[i]._value);
+                        break;
+                    case ConsumableType.Hunger:
+                        _condition.Eat(_selectedItem._consumables[i]._value);
+                        break;
+                }
+            }
+            RemoveSelectedItem();
+        }
+    }
+
+    public void OnDropButton()
+    {
+        ThrowItem(_selectedItem);
+        RemoveSelectedItem();
+    }
+
+    private void RemoveSelectedItem()
+    {
+        _slots[_selectedItemIdx]._quantity--;
+
+        if(_slots[_selectedItemIdx]._quantity <= 0)
+        {
+            _selectedItem = null;
+            _slots[_selectedItemIdx]._item = null;
+            _selectedItemIdx = -1;
+            ClearSelectedItemWindow();
+        }
+
+        UpdateUI();
     }
 }
