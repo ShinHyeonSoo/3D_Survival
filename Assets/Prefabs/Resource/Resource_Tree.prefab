@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7060139421408464319}
   - component: {fileID: 4921690492293566079}
   - component: {fileID: 2010300224056248017}
+  - component: {fileID: 7703073991958918910}
   m_Layer: 9
   m_Name: Resource_Tree
   m_TagString: Untagged
@@ -70,6 +71,22 @@ MonoBehaviour:
   _itemToGive: {fileID: 11400000, guid: 55765403bc66c7d44b161331f2eadb05, type: 2}
   _quantityPerHit: 1
   _capacity: 5
+--- !u!208 &7703073991958918910
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3140489026443681955}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.05, y: 0.05, z: 0.05}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0.15, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &3817470110712406145
 GameObject:
   m_ObjectHideFlags: 0
