@@ -26,6 +26,8 @@ public class UIInventory : MonoBehaviour
     private ItemData _selectedItem;
     private int _selectedItemIdx;
 
+    int _curEquipIdx;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -226,5 +228,37 @@ public class UIInventory : MonoBehaviour
         }
 
         UpdateUI();
+    }
+
+    public void OnEquipButton()
+    {
+        if (_slots[_curEquipIdx]._equipped)
+        {
+            UnEquip(_curEquipIdx);
+        }
+
+        _slots[_selectedItemIdx]._equipped = true;
+        _curEquipIdx = _selectedItemIdx;
+        CharacterManager.Instance.Player._equipment.EquipNew(_selectedItem);
+        UpdateUI();
+
+        SelectItem(_selectedItemIdx);
+    }
+
+    public void UnEquipButton()
+    {
+        UnEquip(_selectedItemIdx);
+    }
+
+    private void UnEquip(int index)
+    {
+        _slots[index]._equipped = false;
+        CharacterManager.Instance.Player._equipment.UnEquip();
+        UpdateUI();
+
+        if(_selectedItemIdx == index)
+        {
+            SelectItem(_selectedItemIdx);
+        }
     }
 }
